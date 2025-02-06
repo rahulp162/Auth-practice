@@ -7,12 +7,11 @@ import { Button } from "./ui/button";
 
 const NavBar = () => {
     const { user, error, isLoading } = useUser();
-    console.log("OOO",user)
     return (
         <div className="py-4 flex w-full justify-between text-white bg-gray-800 px-44">
             <div className="flex gap-8">
                 <a href="/">Home</a>
-                <a href="/profile">Server Protected Profile</a>
+                <a href="/profile">Profile</a>
                 <a href="/middleware">Middleware Protected</a>
                 <a href="/auth-protected">Auth Protected</a>
                 <a target="_black" href="/api/data">
