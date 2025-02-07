@@ -4,36 +4,34 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 
 import React from "react";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const NavBar = () => {
-    const { user, error, isLoading } = useUser();
+    const { user, isLoading } = useUser();
     return (
         <div className="py-4 flex w-full justify-between text-white bg-gray-800 px-44">
             <div className="flex gap-8">
-                <a href="/">Home</a>
-                <a href="/profile">Profile</a>
-                <a href="/middleware">Middleware Protected</a>
-                <a href="/auth-protected">Auth Protected</a>
-                <a target="_black" href="/api/data">
+                <Link href="/">Home</Link>
+                <Link href="/profile">Profile</Link>
+                <Link href="/middleware">Middleware Protected</Link>
+                <Link href="/protected">Protected Route</Link>
+                <Link target="_black" href="/api/data">
                     Protected Api
-                </a>
+                </Link>
             </div>
             <div className="flex gap-4">
                 {!user && !isLoading && (
                 <>
-                    <a href="/api/auth/login">
+                    <Link href="/api/auth/login">
                         <Button>Login</Button>
-                    </a>
-                    <a href="/api/auth/login">
-                        <Button>Signup</Button>
-                    </a>
+                    </Link>
                 </>
                 )}
                 {user && !isLoading && (
                 <>
-                    <a href="/api/auth/logout">
+                    <Link href="/api/auth/logout">
                         <Button>Logout</Button>
-                    </a>
+                    </Link>
                 </>
                 )}
             </div>
